@@ -81,6 +81,7 @@ export const Sudoku = ({ name, onComplete }) => {
                                 onChange={e => onChange(e.target.value, rowIndex, colIndex)}
                                 value={cell}
                                 autocomplete="off"
+                                inputMode="numeric"
                             />
                         );
                     } else {
