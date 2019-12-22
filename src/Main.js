@@ -58,7 +58,7 @@ export default function Main({ name }) {
                         </div>
                     </div>
                     {puzzleDone && showTreasure ? (
-                        <TreasureMap onShowPuzzle={onShowPuzzle} />
+                        <TreasureMap name={name} onShowPuzzle={onShowPuzzle} />
                     ) : (
                         <Puzzle name={name} complete={puzzleDone} onShowTreasure={onShowTreasure} onComplete={onPuzzleComplete} />
                     )}

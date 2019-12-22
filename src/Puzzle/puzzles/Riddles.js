@@ -29,7 +29,7 @@ export const Riddles = ({ onComplete }) => {
             <div style={styles.heading}>{`Level ${level + 1} / 3`}</div>
             <div style={styles.riddleContainer}>
                 <div style={styles.text}>{questions[level]}</div>
-                <input autocomplete="off" style={styles.input} onChange={e => onChangeAnswer(e.target.value)} value={answer} />
+                <input autoComplete="off" style={styles.input} onChange={e => onChangeAnswer(e.target.value)} value={answer} />
             </div>
         </div>
     );

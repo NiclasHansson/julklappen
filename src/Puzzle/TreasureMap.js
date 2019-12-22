@@ -1,10 +1,40 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export const TreasureMap = ({ onShowPuzzle }) => {
+const pappaMap = require("./pappaMap.jpg");
+// const mammaMap = require("./mammaMap.jpg");
+// const jessicaMap = require("./jessicaMap.jpg");
+// const christianMap = require("./christianMap.jpg");
+// const peterMap = require("./peterMap.jpg");
+// const linaMap = require("./linaMap.jpg");
+
+export const TreasureMap = ({ name, onShowPuzzle }) => {
+    let image;
+    switch (name) {
+        case "Pappa":
+            image = pappaMap;
+            break;
+        // case "Mamma":
+        //     image = mammaMap;
+        //     break;
+        // case "Jessica":
+        //     image = jessicaMap;
+        //     break;
+        // case "Christian":
+        //     image = christianMap;
+        //     break;
+        // case "Peter":
+        //     image = peterMap;
+        //     break;
+        // case "Lina":
+        //     image = linaMap;
+        //     break;
+        default:
+    }
+
     return (
         <div style={styles.container}>
-            <div style={styles.text}>Där det röda bäret möter den ryska drycken finner du glücken...</div>
+            <img src={image} style={styles.img} width={300} height={300} />
             <button style={styles.backButton} onClick={onShowPuzzle}>
                 Tillbaka
             </button>
@@ -21,10 +51,10 @@ const styles = {
         alignItems: "center",
         justifyContent: "space-between"
     },
-    text: {
-        fontSize: 40,
-        textAlign: "center",
-        marginBottom: 30
+    img: {
+        marginBottom: 30,
+        width: 300,
+        height: 300
     },
     backButton: {
         marginBottom: 16
@@ -32,5 +62,6 @@ const styles = {
 };
 
 TreasureMap.propTypes = {
+    name: PropTypes.string,
     onShowPuzzle: PropTypes.func
 };

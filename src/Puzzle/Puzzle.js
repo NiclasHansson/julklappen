@@ -27,7 +27,7 @@ export const Puzzle = ({ complete, name, onComplete, onShowTreasure }) => {
             {complete ? (
                 <button onClick={onShowTreasure}>Nästa</button>
             ) : showInput ? (
-                <input autocomplete="off" style={styles.input} onChange={e => onChange(e.target.value)} />
+                <input autoComplete="off" style={styles.input} onChange={e => onChange(e.target.value)} />
             ) : (
                 <button style={styles.button} onClick={() => setShowInput(!showInput)}>
                     Fuska

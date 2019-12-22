@@ -74,7 +74,7 @@ export const Crossword = ({ onComplete }) => {
                                 style={styles.input(firstRow, leftBorder)}
                                 onChange={e => onChange(e.target.value, rowIndex, colIndex)}
                                 value={cell}
-                                autocomplete="off"
+                                autoComplete="off"
                             />
                         );
                     } else {
