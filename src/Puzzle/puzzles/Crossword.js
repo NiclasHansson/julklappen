@@ -66,11 +66,12 @@ export const Crossword = ({ onComplete }) => {
             {matrix.map((row, rowIndex) =>
                 row.map((cell, colIndex) => {
                     const firstRow = rowIndex === 0;
+                    const leftBorder = colIndex === 0;
                     if (initialMatrix[rowIndex][colIndex] === "") {
                         return (
                             <input
                                 key={`cell-${rowIndex}-${colIndex}`}
-                                style={styles.input(firstRow)}
+                                style={styles.input(firstRow, leftBorder)}
                                 onChange={e => onChange(e.target.value, rowIndex, colIndex)}
                                 value={cell}
                                 autocomplete="off"
@@ -78,7 +79,7 @@ export const Crossword = ({ onComplete }) => {
                         );
                     } else {
                         return (
-                            <div key={`cell-${rowIndex}-${colIndex}`} style={styles.disabledContainer(firstRow)}>
+                            <div key={`cell-${rowIndex}-${colIndex}`} style={styles.disabledContainer(firstRow, leftBorder)}>
                                 <div style={styles.disabledText}>{cell}</div>
                             </div>
                         );
@@ -96,31 +97,37 @@ const styles = {
         flex: 1,
         flexWrap: "wrap",
         flexDirection: "row",
-        width: "100%"
+        width: 380,
+        marginBottom: 50
     },
-    input: firstRow => ({
+    input: (firstRow, leftBorder) => ({
         height: 40,
         width: `${boxWidth}%`,
         borderRightWidth: 1,
         borderBottomWidth: 1,
+        borderLeftWidth: leftBorder ? 1 : 0,
         borderTopWidth: firstRow ? 1 : 0,
         borderColor: "#888",
-
-        textAlign: "center"
+        textAlign: "center",
+        padding: 0,
+        margin: 0,
+        boxSizing: "border-box"
     }),
-    disabledContainer: firstRow => ({
+    disabledContainer: (firstRow, leftBorder) => ({
         display: "flex",
         flexDirection: "column",
         height: 40,
         width: `${boxWidth}%`,
         borderRightWidth: 1,
         borderBottomWidth: 1,
+        borderLeftWidth: leftBorder ? 1 : 0,
         borderTopWidth: firstRow ? 1 : 0,
         borderColor: "#888",
-
         backgroundColor: "#ccc",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        boxSizing: "border-box",
+        borderStyle: "solid"
     }),
     disabledText: {
         fontSize: 9

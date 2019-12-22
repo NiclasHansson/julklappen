@@ -8,7 +8,7 @@ import { RiddlesEnglish } from "./puzzles/RiddlesEnglish";
 
 const PASSWORD = "Gurkor";
 
-export const Puzzle = ({ complete, onComplete, onShowTreasure }) => {
+export const Puzzle = ({ complete, name, onComplete, onShowTreasure }) => {
     const [showInput, setShowInput] = React.useState(false);
 
     const onChange = text => {
@@ -20,10 +20,10 @@ export const Puzzle = ({ complete, onComplete, onShowTreasure }) => {
 
     return (
         <div style={styles.container}>
-            {/*<Sudoku onComplete={onComplete} />*/}
-            {/*<Crossword onComplete={onComplete} />*/}
-            {/*<Riddles onComplete={onComplete} />*/}
-            <RiddlesEnglish onComplete={onComplete} />
+            {name === "Pappa" && <Sudoku onComplete={onComplete} />}
+            {name === "Mamma" && <Crossword onComplete={onComplete} />}
+            {name === "Christian" && <Riddles onComplete={onComplete} />}
+            {name === "Jessica" && <RiddlesEnglish onComplete={onComplete} />}
             {complete ? (
                 <button onClick={onShowTreasure}>Nästa</button>
             ) : showInput ? (
@@ -42,7 +42,7 @@ const styles = {
         display: "flex",
         flexDirection: "column",
         flex: 1,
-        width: "100%",
+        width: "80%",
         alignItems: "center",
         justifyContent: "center"
     },
@@ -60,6 +60,7 @@ const styles = {
 
 Puzzle.propTypes = {
     complete: PropTypes.bool,
+    name: PropTypes.string,
     onShowTreasure: PropTypes.func,
     onComplete: PropTypes.func
 };

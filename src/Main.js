@@ -2,12 +2,13 @@ import React from "react";
 import { Puzzle } from "./Puzzle/Puzzle";
 import { TreasureMap } from "./Puzzle/TreasureMap";
 import Loader from "react-loader-spinner";
+import PropTypes from "prop-types";
 
 const getPuzzleStatus = async () => {
     return await localStorage.getItem("NiclasPuzzleDone");
 };
 
-export default function Main() {
+export default function Main({ name }) {
     const [puzzleDone, setPuzzleDone] = React.useState(null);
     const [showTreasure, setShowTreasure] = React.useState(false);
 
@@ -50,7 +51,7 @@ export default function Main() {
             ) : (
                 <div style={styles.content}>
                     <div style={styles.header}>
-                        <div style={styles.heading}>God Jul Jessica!</div>
+                        <div style={styles.heading}>{`God Jul ${name}!`}</div>
                         <div style={styles.description}>
                             Lös pusslet för att ta dig vidare till nästa moment i din sökan efter meningen med julafton. Med andra ord
                             julklappar!
@@ -59,7 +60,7 @@ export default function Main() {
                     {puzzleDone && showTreasure ? (
                         <TreasureMap onShowPuzzle={onShowPuzzle} />
                     ) : (
-                        <Puzzle complete={puzzleDone} onShowTreasure={onShowTreasure} onComplete={onPuzzleComplete} />
+                        <Puzzle name={name} complete={puzzleDone} onShowTreasure={onShowTreasure} onComplete={onPuzzleComplete} />
                     )}
                 </div>
             )}
@@ -89,9 +90,9 @@ const styles = {
         flexDirection: "column",
         alignItems: "center",
         width: "100%",
-        paddingTop: 50,
-        paddingBottom: 50,
-        marginBottom: 50,
+        paddingTop: 20,
+        paddingBottom: 20,
+        marginBottom: 20,
         backgroundColor: "red"
     },
     heading: {
@@ -111,4 +112,8 @@ const styles = {
         marginHorizontal: 16,
         color: "white"
     }
+};
+
+Puzzle.propTypes = {
+    name: PropTypes.string
 };
