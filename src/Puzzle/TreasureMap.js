@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const pappaMap = require("./pappaMap.jpg");
-// const mammaMap = require("./mammaMap.jpg");
-// const jessicaMap = require("./jessicaMap.jpg");
-// const christianMap = require("./christianMap.jpg");
-// const peterMap = require("./peterMap.jpg");
-// const linaMap = require("./linaMap.jpg");
+const mammaMap = require("./mammaMap.jpg");
+const jessicaMap = require("./jessicaMap.jpg");
+const christianMap = require("./christianMap.jpg");
+const peterMap = require("./peterMap.jpg");
+const linaMap = require("./linaMap.jpg");
 
 export const TreasureMap = ({ name, onShowPuzzle }) => {
     let image;
@@ -14,21 +14,21 @@ export const TreasureMap = ({ name, onShowPuzzle }) => {
         case "Pappa":
             image = pappaMap;
             break;
-        // case "Mamma":
-        //     image = mammaMap;
-        //     break;
-        // case "Jessica":
-        //     image = jessicaMap;
-        //     break;
-        // case "Christian":
-        //     image = christianMap;
-        //     break;
-        // case "Peter":
-        //     image = peterMap;
-        //     break;
-        // case "Lina":
-        //     image = linaMap;
-        //     break;
+        case "Mamma":
+            image = mammaMap;
+            break;
+        case "Jessica":
+            image = jessicaMap;
+            break;
+        case "Christian":
+            image = christianMap;
+            break;
+        case "Peter":
+            image = peterMap;
+            break;
+        case "Lina":
+            image = linaMap;
+            break;
         default:
     }
 

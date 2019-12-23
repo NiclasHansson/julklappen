@@ -21,6 +21,8 @@ export const Puzzle = ({ complete, name, onComplete, onShowTreasure }) => {
     return (
         <div style={styles.container}>
             {name === "Pappa" && <Sudoku onComplete={onComplete} />}
+            {name === "Lina" && <Crossword onComplete={onComplete} />}
+            {name === "Peter" && <Sudoku onComplete={onComplete} />}
             {name === "Mamma" && <Crossword onComplete={onComplete} />}
             {name === "Christian" && <Riddles onComplete={onComplete} />}
             {name === "Jessica" && <RiddlesEnglish onComplete={onComplete} />}
