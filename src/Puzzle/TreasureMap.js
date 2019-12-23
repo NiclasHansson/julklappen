@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Sound from "react-sound";
 
 const pappaMap = require("./pappaMap.jpg");
 const mammaMap = require("./mammaMap.jpg");
@@ -7,6 +8,7 @@ const jessicaMap = require("./jessicaMap.jpg");
 const christianMap = require("./christianMap.jpg");
 const peterMap = require("./peterMap.jpg");
 const linaMap = require("./linaMap.jpg");
+const music = require("./pirates.m4a");
 
 export const TreasureMap = ({ name, onShowPuzzle }) => {
     let image;
@@ -34,6 +36,7 @@ export const TreasureMap = ({ name, onShowPuzzle }) => {
 
     return (
         <div style={styles.container}>
+            <Sound url={music} playStatus={Sound.status.PLAYING} loop autoLoad volume={50} />
             <img src={image} style={styles.img} width={300} height={300} />
             <button style={styles.backButton} onClick={onShowPuzzle}>
                 Tillbaka
